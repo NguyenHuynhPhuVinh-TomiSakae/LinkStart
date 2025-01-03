@@ -2,7 +2,6 @@ C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\LinkStart.deps.json
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\LinkStart.runtimeconfig.json
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\LinkStart.dll
-C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\LinkStart.pdb
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\FireSharp.dll
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\Microsoft.Threading.Tasks.Extensions.Desktop.dll
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\bin\Debug\net6.0-windows\win-x64\Microsoft.Threading.Tasks.Extensions.dll
@@ -520,6 +519,5 @@ C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\LinkStart.csproj.Up2Date
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\LinkStart.dll
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\refint\LinkStart.dll
-C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\LinkStart.pdb
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\LinkStart.genruntimeconfig.cache
 C:\Users\kotor\Documents\LinkStart\LinkStartCS\obj\Debug\net6.0-windows\win-x64\ref\LinkStart.dll

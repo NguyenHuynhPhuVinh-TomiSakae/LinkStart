@@ -11,6 +11,8 @@ public partial class Form1 : Form
 {
     private static IFirebaseClient client;
     private bool isRunning = false;
+
+    private string pythonPath = "C:\\Users\\kotor\\Documents\\LinkStart\\LinkStartPython\\";
     private CancellationTokenSource cancellationTokenSource;
 
     public Form1()
@@ -61,8 +63,11 @@ public partial class Form1 : Form
         {
             while (!token.IsCancellationRequested)
             {
-                FirebaseResponse response = await client.GetAsync("slide");
-                int slideValue = response.ResultAs<int>();
+                FirebaseResponse slideResponse = await client.GetAsync("slide");
+                FirebaseResponse screenResponse = await client.GetAsync("screen");
+                
+                int slideValue = slideResponse.ResultAs<int>();
+                string screenValue = screenResponse.ResultAs<string>();
 
                 if (slideValue == 1)
                 {
@@ -73,6 +78,29 @@ public partial class Form1 : Form
                 {
                     SendKeys.SendWait("{LEFT}");
                     await client.SetAsync("slide", -1);
+                }
+
+                if (screenValue == "demo")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = pythonPath + "powerpoint_handler.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("screen", "");
+                }
+                else if (screenValue == "slide")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = pythonPath + "open_powerpoint_slide.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("screen", "");
                 }
 
                 await Task.Delay(100, token);
