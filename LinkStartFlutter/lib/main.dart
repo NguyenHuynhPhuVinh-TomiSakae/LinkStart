@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'screens/slide_screen.dart';
 import 'styles/app_styles.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'screens/demo_screen.dart';
 
 void main() async {
   try {
@@ -107,7 +108,12 @@ class MyHomePage extends StatelessWidget {
                         'Chạy Demo',
                         Icons.play_arrow,
                         () {
-                          // Xử lý logic khi nhấn nút Chạy Demo
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DemoScreen(),
+                            ),
+                          );
                         },
                       ),
                     ],

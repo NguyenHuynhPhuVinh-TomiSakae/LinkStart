@@ -11,4 +11,13 @@ class FirebaseService {
       throw e;
     }
   }
+
+  Future<void> updateScreenValue(String screen) async {
+    try {
+      await _database.child('screen').set(screen);
+    } catch (e) {
+      print('Error updating screen value: $e');
+      throw e;
+    }
+  }
 }
