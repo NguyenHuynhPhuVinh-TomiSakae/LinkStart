@@ -3,17 +3,30 @@ import win32gui
 import win32con
 
 def close_active_window():
-    # Lấy handle của cửa sổ đang active
-    hwnd = win32gui.GetForegroundWindow()
+    # Tạo list để lưu các cửa sổ phù hợp
+    windows = []
     
-    if hwnd:
+    # Hàm callback để kiểm tra từng cửa sổ
+    def enum_handler(hwnd, windows):
+        if win32gui.IsWindowVisible(hwnd):
+            class_name = win32gui.GetClassName(hwnd)
+            window_text = win32gui.GetWindowText(hwnd)
+            if "WindowsForms10" in class_name and "LinkStart" not in window_text:
+                windows.append(hwnd)
+    
+    # Liệt kê tất cả các cửa sổ
+    win32gui.EnumWindows(enum_handler, windows)
+    
+    # Đóng tất cả các cửa sổ phù hợp
+    success = False
+    for hwnd in windows:
         try:
-            # Gửi message WM_CLOSE để đóng cửa sổ
             win32gui.PostMessage(hwnd, win32con.WM_CLOSE, 0, 0)
-            return True
+            success = True
         except:
-            return False
-    return False
+            continue
+    
+    return success
 
 if __name__ == "__main__":
     if close_active_window():

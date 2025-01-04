@@ -80,7 +80,40 @@ public partial class Form1 : Form
                     await client.SetAsync("slide", -1);
                 }
 
-                if (screenValue == "demo")
+                if (screenValue.StartsWith("login"))
+                {
+                    string userType = screenValue.Contains("admin") ? "admin" : "user";
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = $"{pythonPath}login_automation.py {userType}";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("screen", "");
+                }
+                else if (screenValue.StartsWith("qt"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    
+                    string[] parts = screenValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}admin_handler.py {parts[1]}";
+                    }
+                    else if (parts.Length == 3)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}admin_handler.py {parts[1]} {parts[2]}";
+                    }
+                    
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("screen", "");
+                }
+                else if (screenValue == "demo")
                 {
                     System.Diagnostics.Process process = new System.Diagnostics.Process();
                     process.StartInfo.FileName = "python";
@@ -96,6 +129,17 @@ public partial class Form1 : Form
                     System.Diagnostics.Process process = new System.Diagnostics.Process();
                     process.StartInfo.FileName = "python";
                     process.StartInfo.Arguments = pythonPath + "open_powerpoint_slide.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("screen", "");
+                }
+                else if (screenValue == "exit")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = pythonPath + "close_active_window.py ";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
                     process.Start();

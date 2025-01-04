@@ -22,12 +22,53 @@ class _AdminScreenState extends State<AdminScreen> {
   Widget _buildExpandableMenu(
       String title, IconData icon, List<Map<String, dynamic>> subMenus) {
     bool isExpanded = expandedMenu == title.toLowerCase();
-    String firebaseValue = title
+    String menuPrefix = title
         .toLowerCase()
         .replaceAll(' ', '')
         .replaceAll('ả', 'a')
         .replaceAll('ý', 'y')
-        .replaceAll('ứ', 'u');
+        .replaceAll('ứ', 'u')
+        .replaceAll('ầ', 'a')
+        .replaceAll('ậ', 'a')
+        .replaceAll('ấ', 'a')
+        .replaceAll('ê', 'e')
+        .replaceAll('ề', 'e')
+        .replaceAll('ế', 'e')
+        .replaceAll('ệ', 'e')
+        .replaceAll('ể', 'e')
+        .replaceAll('ễ', 'e')
+        .replaceAll('ư', 'u')
+        .replaceAll('ừ', 'u')
+        .replaceAll('ử', 'u')
+        .replaceAll('ữ', 'u')
+        .replaceAll('ự', 'u')
+        .replaceAll('í', 'i')
+        .replaceAll('ì', 'i')
+        .replaceAll('ỉ', 'i')
+        .replaceAll('ĩ', 'i')
+        .replaceAll('ị', 'i')
+        .replaceAll('ó', 'o')
+        .replaceAll('ò', 'o')
+        .replaceAll('ỏ', 'o')
+        .replaceAll('õ', 'o')
+        .replaceAll('ọ', 'o')
+        .replaceAll('ố', 'o')
+        .replaceAll('ồ', 'o')
+        .replaceAll('ổ', 'o')
+        .replaceAll('ỗ', 'o')
+        .replaceAll('ộ', 'o')
+        .replaceAll('ớ', 'o')
+        .replaceAll('ờ', 'o')
+        .replaceAll('ở', 'o')
+        .replaceAll('ỡ', 'o')
+        .replaceAll('ợ', 'o')
+        .replaceAll('ă', 'a')
+        .replaceAll('ắ', 'a')
+        .replaceAll('ằ', 'a')
+        .replaceAll('ẳ', 'a')
+        .replaceAll('ẵ', 'a')
+        .replaceAll('ặ', 'a')
+        .replaceAll('đ', 'd');
 
     return Container(
       decoration: AppStyles.getTechContainerDecoration(),
@@ -73,7 +114,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   () async {
                     try {
                       await _firebaseService
-                          .updateScreenValue('$firebaseValue-${menu['value']}');
+                          .updateScreenValue('qt-$menuPrefix-${menu['value']}');
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text('Đã chuyển đến ${menu['title']}'),
@@ -185,7 +226,8 @@ class _AdminScreenState extends State<AdminScreen> {
                       Icons.calculate,
                       () async {
                         try {
-                          await _firebaseService.updateScreenValue('tinhtoan');
+                          await _firebaseService
+                              .updateScreenValue('qt-tinhtoan');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Đã chuyển đến Tính Toán')),
                           );
@@ -206,7 +248,8 @@ class _AdminScreenState extends State<AdminScreen> {
                       Icons.bar_chart,
                       () async {
                         try {
-                          await _firebaseService.updateScreenValue('thongke');
+                          await _firebaseService
+                              .updateScreenValue('qt-thongke');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Đã chuyển đến Thống Kê')),
                           );
@@ -227,7 +270,8 @@ class _AdminScreenState extends State<AdminScreen> {
                       Icons.assessment,
                       () async {
                         try {
-                          await _firebaseService.updateScreenValue('baobieu');
+                          await _firebaseService
+                              .updateScreenValue('qt-baobieu');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Đã chuyển đến Báo Biểu')),
                           );
@@ -248,7 +292,8 @@ class _AdminScreenState extends State<AdminScreen> {
                       Icons.receipt_long,
                       () async {
                         try {
-                          await _firebaseService.updateScreenValue('laphoadon');
+                          await _firebaseService
+                              .updateScreenValue('qt-laphoadon');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 content: Text('Đã chuyển đến Lập Hóa Đơn')),
@@ -271,7 +316,7 @@ class _AdminScreenState extends State<AdminScreen> {
                       () async {
                         try {
                           await _firebaseService
-                              .updateScreenValue('nhapsanpham');
+                              .updateScreenValue('qt-nhapsanpham');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 content: Text('Đã chuyển đến Nhập Sản Phẩm')),
