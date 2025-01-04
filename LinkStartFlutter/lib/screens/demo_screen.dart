@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../services/firebase_service.dart';
+import 'demo_control_screen.dart';
 
 class DemoScreen extends StatelessWidget {
   final FirebaseService _firebaseService = FirebaseService();
@@ -29,6 +30,12 @@ class DemoScreen extends StatelessWidget {
                         () async {
                           try {
                             await _firebaseService.updateScreenValue('demo');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DemoControlScreen(),
+                              ),
+                            );
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Đã chuyển sang chế độ Demo'),
