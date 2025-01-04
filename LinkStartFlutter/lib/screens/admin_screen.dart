@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../services/firebase_service.dart';
+import '../screens/product_management_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -112,23 +113,60 @@ class _AdminScreenState extends State<AdminScreen> {
                   menu['title'],
                   menu['icon'],
                   () async {
-                    try {
-                      await _firebaseService
-                          .updateScreenValue('qt-$menuPrefix-${menu['value']}');
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Đã chuyển đến ${menu['title']}'),
-                          backgroundColor: Colors.green,
-                        ),
-                      );
-                    } catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              'Lỗi: Không thể chuyển đến ${menu['title']}'),
-                          backgroundColor: Colors.red,
-                        ),
-                      );
+                    if (menu['value'] == 'sanpham') {
+                      try {
+                        if (menuPrefix == 'quanly') {
+                          await _firebaseService
+                              .updateScreenValue('qt-quanly-sanpham');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductManagementScreen(),
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Đã chuyển đến quản lý sản phẩm'),
+                              backgroundColor: Colors.green,
+                            ),
+                          );
+                        } else {
+                          await _firebaseService.updateScreenValue(
+                              'qt-$menuPrefix-${menu['value']}');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Đã chuyển đến tra cứu sản phẩm'),
+                              backgroundColor: Colors.green,
+                            ),
+                          );
+                        }
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Lỗi: Không thể thực hiện thao tác'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      }
+                    } else {
+                      try {
+                        await _firebaseService.updateScreenValue(
+                            'qt-$menuPrefix-${menu['value']}');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Đã chuyển đến ${menu['title']}'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                'Lỗi: Không thể chuyển đến ${menu['title']}'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      }
                     }
                   },
                 )),
@@ -326,6 +364,31 @@ class _AdminScreenState extends State<AdminScreen> {
                             SnackBar(
                               content: Text(
                                   'Lỗi: Không thể chuyển đến Nhập Sản Phẩm'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                    SizedBox(height: 8),
+                    AppStyles.buildTechButton(
+                      'Thoát',
+                      Icons.exit_to_app,
+                      () async {
+                        try {
+                          await _firebaseService.updateScreenValue('exit');
+                          Navigator.pop(context);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Đã thoát khỏi màn hình quản trị'),
+                              backgroundColor: Colors.green,
+                            ),
+                          );
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content:
+                                  Text('Lỗi: Không thể thực hiện thao tác'),
                               backgroundColor: Colors.red,
                             ),
                           );

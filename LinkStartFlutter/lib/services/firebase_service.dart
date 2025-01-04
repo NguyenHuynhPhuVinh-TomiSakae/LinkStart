@@ -20,4 +20,13 @@ class FirebaseService {
       throw e;
     }
   }
+
+  Future<void> updateAction(String action) async {
+    try {
+      await _database.child('action').set(action);
+    } catch (e) {
+      print('Error updating action value: $e');
+      throw e;
+    }
+  }
 }
