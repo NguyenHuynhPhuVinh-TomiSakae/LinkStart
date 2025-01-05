@@ -90,6 +90,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = $"{pythonPath}login_automation.py {userType}";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("screen", "");
@@ -111,6 +112,7 @@ public partial class Form1 : Form
                     
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("screen", "");
@@ -126,6 +128,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -141,6 +144,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -156,6 +160,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -171,6 +176,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -186,6 +192,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -201,6 +208,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -216,6 +224,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -231,6 +240,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -246,6 +256,7 @@ public partial class Form1 : Form
                     }
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -257,6 +268,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = $"{pythonPath}LHD.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -268,6 +280,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = $"{pythonPath}NSP.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -279,6 +292,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = $"{pythonPath}TT.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -290,6 +304,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = $"{pythonPath}BB.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("action", "");
@@ -301,6 +316,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = pythonPath + "powerpoint_handler.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("screen", "");
@@ -312,6 +328,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = pythonPath + "open_powerpoint_slide.py";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("screen", "");
@@ -323,6 +340,7 @@ public partial class Form1 : Form
                     process.StartInfo.Arguments = pythonPath + "close_active_window.py ";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.CreateNoWindow = true;
                     process.Start();
                     
                     await client.SetAsync("screen", "");
