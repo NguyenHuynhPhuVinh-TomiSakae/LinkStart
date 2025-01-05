@@ -250,6 +250,28 @@ public partial class Form1 : Form
                     
                     await client.SetAsync("action", "");
                 }
+                else if (actionValue =="lhd")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = $"{pythonPath}LHD.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue =="nsp")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = $"{pythonPath}NSP.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
                 else if (screenValue == "demo")
                 {
                     System.Diagnostics.Process process = new System.Diagnostics.Process();

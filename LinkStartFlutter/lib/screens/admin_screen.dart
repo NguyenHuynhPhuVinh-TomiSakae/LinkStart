@@ -10,6 +10,8 @@ import 'product_search_screen.dart';
 import 'staff_search_screen.dart';
 import 'customer_search_screen.dart';
 import 'account_search_screen.dart';
+import 'create_invoice_screen.dart';
+import 'product_import_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -444,6 +446,12 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-laphoadon');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CreateInvoiceScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến Lập Hóa Đơn');
                         } catch (e) {
@@ -463,6 +471,12 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-nhapsanpham');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductImportScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến Nhập Sản Phẩm');
                         } catch (e) {
