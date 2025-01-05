@@ -124,47 +124,32 @@ class _AdminScreenState extends State<AdminScreen> {
                               builder: (context) => ProductManagementScreen(),
                             ),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã chuyển đến quản lý sản phẩm'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến quản lý sản phẩm');
                         } else {
                           await _firebaseService.updateScreenValue(
                               'qt-$menuPrefix-${menu['value']}');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã chuyển đến tra cứu sản phẩm'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến tra cứu sản phẩm');
                         }
                       } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Lỗi: Không thể thực hiện thao tác'),
-                            backgroundColor: Colors.red,
-                          ),
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể thực hiện thao tác',
+                          isError: true,
                         );
                       }
                     } else {
                       try {
                         await _firebaseService.updateScreenValue(
                             'qt-$menuPrefix-${menu['value']}');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Đã chuyển đến ${menu['title']}'),
-                            backgroundColor: Colors.green,
-                          ),
-                        );
+                        AppStyles.showTopSnackBar(
+                            context, 'Đã chuyển đến ${menu['title']}');
                       } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                                'Lỗi: Không thể chuyển đến ${menu['title']}'),
-                            backgroundColor: Colors.red,
-                          ),
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể chuyển đến ${menu['title']}',
+                          isError: true,
                         );
                       }
                     }
@@ -266,16 +251,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-tinhtoan');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Đã chuyển đến Tính Toán')),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến Tính Toán');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể chuyển đến Tính Toán'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể chuyển đến Tính Toán',
+                            isError: true,
                           );
                         }
                       },
@@ -288,16 +270,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-thongke');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Đã chuyển đến Thống Kê')),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến Thống Kê');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể chuyển đến Thống Kê'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể chuyển đến Thống Kê',
+                            isError: true,
                           );
                         }
                       },
@@ -310,16 +289,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-baobieu');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Đã chuyển đến Báo Biểu')),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến Báo Biểu');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể chuyển đến Báo Biểu'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể chuyển đến Báo Biểu',
+                            isError: true,
                           );
                         }
                       },
@@ -332,17 +308,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-laphoadon');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Đã chuyển đến Lập Hóa Đơn')),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến Lập Hóa Đơn');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể chuyển đến Lập Hóa Đơn'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể chuyển đến Lập Hóa Đơn',
+                            isError: true,
                           );
                         }
                       },
@@ -355,17 +327,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-nhapsanpham');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Đã chuyển đến Nhập Sản Phẩm')),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến Nhập Sản Phẩm');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                  'Lỗi: Không thể chuyển đến Nhập Sản Phẩm'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể chuyển đến Nhập Sản Phẩm',
+                            isError: true,
                           );
                         }
                       },
@@ -378,19 +346,13 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService.updateScreenValue('exit');
                           Navigator.pop(context);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã thoát khỏi màn hình quản trị'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã thoát khỏi màn hình quản trị');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể thực hiện thao tác'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể thực hiện thao tác',
+                            isError: true,
                           );
                         }
                       },

@@ -90,20 +90,13 @@ class _SlideScreenState extends State<SlideScreen> {
                       onTap: () async {
                         try {
                           await _firebaseService.updateSlideValue(0);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã gửi lệnh lùi slide'),
-                              backgroundColor: Colors.green,
-                              duration: Duration(seconds: 1),
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã gửi lệnh lùi slide');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Lỗi: Không thể gửi lệnh lùi'),
-                              backgroundColor: Colors.red,
-                              duration: Duration(seconds: 2),
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể gửi lệnh lùi',
+                            isError: true,
                           );
                         }
                       },
@@ -122,20 +115,13 @@ class _SlideScreenState extends State<SlideScreen> {
                       onTap: () async {
                         try {
                           await _firebaseService.updateSlideValue(1);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã gửi lệnh tiến slide'),
-                              backgroundColor: Colors.green,
-                              duration: Duration(seconds: 1),
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã gửi lệnh tiến slide');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Lỗi: Không thể gửi lệnh tiến'),
-                              backgroundColor: Colors.red,
-                              duration: Duration(seconds: 2),
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể gửi lệnh tiến',
+                            isError: true,
                           );
                         }
                       },

@@ -9,9 +9,7 @@ def bring_app_to_front():
         nonlocal target_window
         if win32gui.IsWindowVisible(hwnd):
             class_name = win32gui.GetClassName(hwnd)
-            window_text = win32gui.GetWindowText(hwnd)
-            if (class_name == "WindowsForms10.Window.8.app.0.141b42a_r8_ad1" and 
-                window_text == "Quản Trị"):
+            if class_name == "WindowsForms10.Window.8.app.0.141b42a_r8_ad1":
                 target_window = hwnd
         return True
     

@@ -65,9 +65,11 @@ public partial class Form1 : Form
             {
                 FirebaseResponse slideResponse = await client.GetAsync("slide");
                 FirebaseResponse screenResponse = await client.GetAsync("screen");
+                FirebaseResponse actionResponse = await client.GetAsync("action");
                 
                 int slideValue = slideResponse.ResultAs<int>();
                 string screenValue = screenResponse.ResultAs<string>();
+                string actionValue = actionResponse.ResultAs<string>();
 
                 if (slideValue == 1)
                 {
@@ -112,6 +114,21 @@ public partial class Form1 : Form
                     process.Start();
                     
                     await client.SetAsync("screen", "");
+                }
+                else if (actionValue.StartsWith("qlsp"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}QLSP.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
                 }
                 else if (screenValue == "demo")
                 {

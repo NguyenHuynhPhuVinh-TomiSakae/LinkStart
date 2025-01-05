@@ -36,20 +36,13 @@ class DemoScreen extends StatelessWidget {
                                 builder: (context) => DemoControlScreen(),
                               ),
                             );
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Đã chuyển sang chế độ Demo'),
-                                backgroundColor: Colors.green,
-                                duration: Duration(seconds: 1),
-                              ),
-                            );
+                            AppStyles.showTopSnackBar(
+                                context, 'Đã chuyển sang chế độ Demo');
                           } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Lỗi: Không thể chuyển chế độ'),
-                                backgroundColor: Colors.red,
-                                duration: Duration(seconds: 2),
-                              ),
+                            AppStyles.showTopSnackBar(
+                              context,
+                              'Lỗi: Không thể chuyển chế độ',
+                              isError: true,
                             );
                           }
                         },

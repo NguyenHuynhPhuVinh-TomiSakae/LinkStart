@@ -67,21 +67,16 @@ class _DemoControlScreenState extends State<DemoControlScreen> {
                               try {
                                 await _firebaseService.updateScreenValue(
                                     isAdmin ? 'login-admin' : 'login-user');
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(isAdmin
+                                AppStyles.showTopSnackBar(
+                                    context,
+                                    isAdmin
                                         ? 'Đăng nhập Admin thành công'
-                                        : 'Đăng nhập User thành công'),
-                                    backgroundColor:
-                                        isAdmin ? Colors.green : Colors.blue,
-                                  ),
-                                );
+                                        : 'Đăng nhập User thành công');
                               } catch (e) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('Lỗi: Không thể đăng nhập'),
-                                    backgroundColor: Colors.red,
-                                  ),
+                                AppStyles.showTopSnackBar(
+                                  context,
+                                  'Lỗi: Không thể đăng nhập',
+                                  isError: true,
                                 );
                               }
                             },

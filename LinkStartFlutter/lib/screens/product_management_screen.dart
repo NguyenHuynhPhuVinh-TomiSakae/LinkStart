@@ -39,19 +39,13 @@ class _ProductManagementScreenState extends State<ProductManagementScreen> {
                       () async {
                         try {
                           await FirebaseService().updateAction('qlsp-1');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã chọn thêm sản phẩm'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chọn thêm sản phẩm');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể thực hiện thao tác'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể thực hiện thao tác',
+                            isError: true,
                           );
                         }
                       },
