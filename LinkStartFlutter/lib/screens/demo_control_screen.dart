@@ -104,18 +104,14 @@ class _DemoControlScreenState extends State<DemoControlScreen> {
                       () async {
                         try {
                           await _firebaseService.updateScreenValue('exit');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã gửi lệnh thoát thành công'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          Navigator.pop(context);
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã gửi lệnh thoát thành công');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Lỗi: Không thể gửi lệnh thoát'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể gửi lệnh thoát',
+                            isError: true,
                           );
                         }
                       },

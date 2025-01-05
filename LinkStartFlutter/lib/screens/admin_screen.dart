@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../services/firebase_service.dart';
 import '../screens/product_management_screen.dart';
+import 'staff_management_screen.dart';
+import 'customer_management_screen.dart';
+import 'account_management_screen.dart';
+import 'supplier_management_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -131,6 +135,110 @@ class _AdminScreenState extends State<AdminScreen> {
                               'qt-$menuPrefix-${menu['value']}');
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến tra cứu sản phẩm');
+                        }
+                      } catch (e) {
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể thực hiện thao tác',
+                          isError: true,
+                        );
+                      }
+                    } else if (menu['value'] == 'nhanvien') {
+                      try {
+                        if (menuPrefix == 'quanly') {
+                          await _firebaseService
+                              .updateScreenValue('qt-quanly-nhanvien');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StaffManagementScreen(),
+                            ),
+                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến quản lý nhân viên');
+                        } else {
+                          await _firebaseService.updateScreenValue(
+                              'qt-$menuPrefix-${menu['value']}');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến tra cứu nhân viên');
+                        }
+                      } catch (e) {
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể thực hiện thao tác',
+                          isError: true,
+                        );
+                      }
+                    } else if (menu['value'] == 'khachhang') {
+                      try {
+                        if (menuPrefix == 'quanly') {
+                          await _firebaseService
+                              .updateScreenValue('qt-quanly-khachhang');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CustomerManagementScreen(),
+                            ),
+                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến quản lý khách hàng');
+                        } else {
+                          await _firebaseService.updateScreenValue(
+                              'qt-$menuPrefix-${menu['value']}');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến tra cứu khách hàng');
+                        }
+                      } catch (e) {
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể thực hiện thao tác',
+                          isError: true,
+                        );
+                      }
+                    } else if (menu['value'] == 'taikhoan') {
+                      try {
+                        if (menuPrefix == 'quanly') {
+                          await _firebaseService
+                              .updateScreenValue('qt-quanly-taikhoan');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AccountManagementScreen(),
+                            ),
+                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến quản lý tài khoản');
+                        } else {
+                          await _firebaseService.updateScreenValue(
+                              'qt-$menuPrefix-${menu['value']}');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến tra cứu tài khoản');
+                        }
+                      } catch (e) {
+                        AppStyles.showTopSnackBar(
+                          context,
+                          'Lỗi: Không thể thực hiện thao tác',
+                          isError: true,
+                        );
+                      }
+                    } else if (menu['value'] == 'nhacungcap') {
+                      try {
+                        if (menuPrefix == 'quanly') {
+                          await _firebaseService
+                              .updateScreenValue('qt-quanly-nhacungcap');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SupplierManagementScreen(),
+                            ),
+                          );
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến quản lý nhà cung cấp');
+                        } else {
+                          await _firebaseService.updateScreenValue(
+                              'qt-$menuPrefix-${menu['value']}');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chuyển đến tra cứu nhà cung cấp');
                         }
                       } catch (e) {
                         AppStyles.showTopSnackBar(

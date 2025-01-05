@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../services/firebase_service.dart';
 
-class ProductManagementScreen extends StatefulWidget {
+class CustomerManagementScreen extends StatefulWidget {
   @override
-  _ProductManagementScreenState createState() =>
-      _ProductManagementScreenState();
+  _CustomerManagementScreenState createState() =>
+      _CustomerManagementScreenState();
 }
 
-class _ProductManagementScreenState extends State<ProductManagementScreen> {
+class _CustomerManagementScreenState extends State<CustomerManagementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppStyles.getTechAppBar('Quản Lý Sản Phẩm'),
+      appBar: AppStyles.getTechAppBar('Quản Lý Khách Hàng'),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -34,13 +34,13 @@ class _ProductManagementScreenState extends State<ProductManagementScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     AppStyles.buildTechButton(
-                      'Thêm Sản Phẩm',
-                      Icons.add,
+                      'Thêm Khách Hàng',
+                      Icons.person_add,
                       () async {
                         try {
-                          await FirebaseService().updateAction('qlsp-1');
+                          await FirebaseService().updateAction('qlkh-1');
                           AppStyles.showTopSnackBar(
-                              context, 'Đã chọn thêm sản phẩm');
+                              context, 'Đã chọn thêm khách hàng');
                         } catch (e) {
                           AppStyles.showTopSnackBar(
                             context,
@@ -52,48 +52,36 @@ class _ProductManagementScreenState extends State<ProductManagementScreen> {
                     ),
                     SizedBox(height: 16),
                     AppStyles.buildTechButton(
-                      'Sửa Sản Phẩm',
+                      'Sửa Khách Hàng',
                       Icons.edit,
                       () async {
                         try {
-                          await FirebaseService().updateAction('qlsp-2');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã chọn sửa sản phẩm'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          await FirebaseService().updateAction('qlkh-2');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chọn sửa khách hàng');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể thực hiện thao tác'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể thực hiện thao tác',
+                            isError: true,
                           );
                         }
                       },
                     ),
                     SizedBox(height: 16),
                     AppStyles.buildTechButton(
-                      'Xóa Sản Phẩm',
-                      Icons.delete,
+                      'Xóa Khách Hàng',
+                      Icons.person_remove,
                       () async {
                         try {
-                          await FirebaseService().updateAction('qlsp-0');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Đã chọn xóa sản phẩm'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
+                          await FirebaseService().updateAction('qlkh-0');
+                          AppStyles.showTopSnackBar(
+                              context, 'Đã chọn xóa khách hàng');
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content:
-                                  Text('Lỗi: Không thể thực hiện thao tác'),
-                              backgroundColor: Colors.red,
-                            ),
+                          AppStyles.showTopSnackBar(
+                            context,
+                            'Lỗi: Không thể thực hiện thao tác',
+                            isError: true,
                           );
                         }
                       },
@@ -107,7 +95,7 @@ class _ProductManagementScreenState extends State<ProductManagementScreen> {
                           await FirebaseService().updateScreenValue('exit');
                           Navigator.pop(context);
                           AppStyles.showTopSnackBar(
-                              context, 'Đã thoát khỏi quản lý sản phẩm');
+                              context, 'Đã thoát khỏi quản lý khách hàng');
                         } catch (e) {
                           AppStyles.showTopSnackBar(
                             context,

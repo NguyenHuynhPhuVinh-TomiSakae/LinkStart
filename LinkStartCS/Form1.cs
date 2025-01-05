@@ -130,6 +130,66 @@ public partial class Form1 : Form
                     
                     await client.SetAsync("action", "");
                 }
+                else if (actionValue.StartsWith("qlnv"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}QLNV.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("qlkh"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}QLKH.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("qltk"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}QLTK.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("qlncc"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}QLNCC.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
                 else if (screenValue == "demo")
                 {
                     System.Diagnostics.Process process = new System.Diagnostics.Process();

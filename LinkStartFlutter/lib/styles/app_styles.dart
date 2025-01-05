@@ -122,6 +122,10 @@ class AppStyles {
 
   static void showTopSnackBar(BuildContext context, String message,
       {bool isError = false}) {
+    // Ẩn thông báo cũ nếu có
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+
+    // Hiển thị thông báo mới
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LinkStart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a2dd5a7771e890c6d2fe7265ba232a8844f3d66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a4282c2aa61e346d57481673e66d2f3df40b8e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("LinkStart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LinkStart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
