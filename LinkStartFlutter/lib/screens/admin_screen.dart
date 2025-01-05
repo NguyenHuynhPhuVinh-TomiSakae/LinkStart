@@ -6,6 +6,10 @@ import 'staff_management_screen.dart';
 import 'customer_management_screen.dart';
 import 'account_management_screen.dart';
 import 'supplier_management_screen.dart';
+import 'product_search_screen.dart';
+import 'staff_search_screen.dart';
+import 'customer_search_screen.dart';
+import 'account_search_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -130,9 +134,15 @@ class _AdminScreenState extends State<AdminScreen> {
                           );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến quản lý sản phẩm');
-                        } else {
-                          await _firebaseService.updateScreenValue(
-                              'qt-$menuPrefix-${menu['value']}');
+                        } else if (menuPrefix == 'tracuu') {
+                          await _firebaseService
+                              .updateScreenValue('qt-tracuu-sanpham');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductSearchScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến tra cứu sản phẩm');
                         }
@@ -156,9 +166,15 @@ class _AdminScreenState extends State<AdminScreen> {
                           );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến quản lý nhân viên');
-                        } else {
-                          await _firebaseService.updateScreenValue(
-                              'qt-$menuPrefix-${menu['value']}');
+                        } else if (menuPrefix == 'tracuu') {
+                          await _firebaseService
+                              .updateScreenValue('qt-tracuu-nhanvien');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StaffSearchScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến tra cứu nhân viên');
                         }
@@ -182,9 +198,15 @@ class _AdminScreenState extends State<AdminScreen> {
                           );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến quản lý khách hàng');
-                        } else {
-                          await _firebaseService.updateScreenValue(
-                              'qt-$menuPrefix-${menu['value']}');
+                        } else if (menuPrefix == 'tracuu') {
+                          await _firebaseService
+                              .updateScreenValue('qt-tracuu-khachhang');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CustomerSearchScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến tra cứu khách hàng');
                         }
@@ -208,9 +230,15 @@ class _AdminScreenState extends State<AdminScreen> {
                           );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến quản lý tài khoản');
-                        } else {
-                          await _firebaseService.updateScreenValue(
-                              'qt-$menuPrefix-${menu['value']}');
+                        } else if (menuPrefix == 'tracuu') {
+                          await _firebaseService
+                              .updateScreenValue('qt-tracuu-taikhoan');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AccountSearchScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến tra cứu tài khoản');
                         }

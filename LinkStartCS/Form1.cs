@@ -190,6 +190,66 @@ public partial class Form1 : Form
                     
                     await client.SetAsync("action", "");
                 }
+                else if (actionValue.StartsWith("tcsp"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}TCSP.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("tcnv"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}TCNV.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("tckh"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}TCKH.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue.StartsWith("tctk"))
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    string[] parts = actionValue.Split('-');
+                    if (parts.Length == 2)
+                    {
+                        process.StartInfo.Arguments = $"{pythonPath}TCTK.py {parts[1]}";
+                    }
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
                 else if (screenValue == "demo")
                 {
                     System.Diagnostics.Process process = new System.Diagnostics.Process();
