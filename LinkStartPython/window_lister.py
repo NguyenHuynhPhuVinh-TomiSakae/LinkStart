@@ -8,11 +8,11 @@ def list_windows():
         if win32gui.IsWindowVisible(hwnd):
             window_text = win32gui.GetWindowText(hwnd)
             class_name = win32gui.GetClassName(hwnd)
-            if window_text and class_name:  # Chỉ lấy cửa sổ có tên và class
+            if class_name:  # Chỉ kiểm tra class, bỏ kiểm tra window_text
                 rect = win32gui.GetWindowRect(hwnd)
                 windows_list.append({
                     'handle': hwnd,
-                    'title': window_text,
+                    'title': window_text,  # Có thể là chuỗi rỗng
                     'class': class_name,
                     'position': rect
                 })

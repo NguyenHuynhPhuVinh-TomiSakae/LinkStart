@@ -11,7 +11,7 @@ def bring_product_window_to_front():
         nonlocal target_window
         if win32gui.IsWindowVisible(hwnd):
             class_name = win32gui.GetClassName(hwnd)
-            if class_name == "WindowsForms10.Window.8.app.0.141b42a_r8_ad1":
+            if class_name == "WindowsForms10.Window.8.app.0.141b42a_r7_ad1":
                 title = win32gui.GetWindowText(hwnd)
                 if "Nhập Sản Phẩm" in title:
                     target_window = hwnd

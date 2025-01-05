@@ -12,6 +12,9 @@ import 'customer_search_screen.dart';
 import 'account_search_screen.dart';
 import 'create_invoice_screen.dart';
 import 'product_import_screen.dart';
+import 'calculation_screen.dart';
+import 'report_screen.dart';
+import 'statistics_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -389,6 +392,12 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-tinhtoan');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CalculationScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến Tính Toán');
                         } catch (e) {
@@ -408,6 +417,12 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-thongke');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => StatisticsScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến Thống Kê');
                         } catch (e) {
@@ -427,6 +442,12 @@ class _AdminScreenState extends State<AdminScreen> {
                         try {
                           await _firebaseService
                               .updateScreenValue('qt-baobieu');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ReportScreen(),
+                            ),
+                          );
                           AppStyles.showTopSnackBar(
                               context, 'Đã chuyển đến Báo Biểu');
                         } catch (e) {

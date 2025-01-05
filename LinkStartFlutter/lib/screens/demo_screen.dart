@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../services/firebase_service.dart';
 import 'demo_control_screen.dart';
+import 'slide_screen.dart';
 
 class DemoScreen extends StatelessWidget {
   final FirebaseService _firebaseService = FirebaseService();
@@ -54,20 +55,19 @@ class DemoScreen extends StatelessWidget {
                         () async {
                           try {
                             await _firebaseService.updateScreenValue('slide');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Đã chuyển sang chế độ Slide'),
-                                backgroundColor: Colors.green,
-                                duration: Duration(seconds: 1),
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SlideScreen(),
                               ),
                             );
+                            AppStyles.showTopSnackBar(
+                                context, 'Đã chuyển sang chế độ Slide');
                           } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Lỗi: Không thể chuyển chế độ'),
-                                backgroundColor: Colors.red,
-                                duration: Duration(seconds: 2),
-                              ),
+                            AppStyles.showTopSnackBar(
+                              context,
+                              'Lỗi: Không thể chuyển chế độ',
+                              isError: true,
                             );
                           }
                         },

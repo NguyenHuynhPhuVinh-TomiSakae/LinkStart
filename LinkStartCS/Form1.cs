@@ -272,6 +272,28 @@ public partial class Form1 : Form
                     
                     await client.SetAsync("action", "");
                 }
+                else if (actionValue =="tt")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = $"{pythonPath}TT.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
+                else if (actionValue =="bb")
+                {
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "python";
+                    process.StartInfo.Arguments = $"{pythonPath}BB.py";
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.Start();
+                    
+                    await client.SetAsync("action", "");
+                }
                 else if (screenValue == "demo")
                 {
                     System.Diagnostics.Process process = new System.Diagnostics.Process();

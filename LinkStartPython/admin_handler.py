@@ -12,7 +12,7 @@ def find_admin_window():
         if win32gui.IsWindowVisible(hwnd):
             class_name = win32gui.GetClassName(hwnd)
             window_text = win32gui.GetWindowText(hwnd)
-            if (class_name == "WindowsForms10.Window.8.app.0.141b42a_r8_ad1" and 
+            if (class_name == "WindowsForms10.Window.8.app.0.141b42a_r7_ad1" and 
                 window_text == "Quản Trị"):
                 target_window = hwnd
         return True
